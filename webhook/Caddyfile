@@ -1,0 +1,7 @@
+http://skadoosh.regalstreak.me:6969
+
+git github.com/regalstreak/skadoosh ../skadoosh {
+    hook /_skadoosh my-secret-keys
+    branch lolita
+    then_long /bin/bash /home/regalstreak2/android/skadoosh/checkdiff/checkdiff.sh
+}
