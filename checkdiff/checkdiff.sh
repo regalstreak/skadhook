@@ -13,40 +13,50 @@
 #
 #########################################
 
+### Variable [Change this]
+# Skadhook clone directory
+SKADHOOK=/home/regalstreak2/android/skadhook
+
+# Statics [Do not change this]
+SKADOOSH=$SKADHOOK/skadoosh
+DIFF=$SKADHOOK/checkdiff
 
 # Copy new file to current
-rm -rf compress-new
-cp ../skadoosh/compress.bash ./compress-new
+rm -rf $DIFF/compress-new
+cp $SKADOOSH/compress.bash $DIFF/compress-new
 
 # Cat both files
-cat compress-new | grep = >> newstuff.txt
-cat compress-old | grep = >> oldstuff.txt
+cat $DIFF/compress-new | grep = >> $DIFF/newstuff.txt
+cat $DIFF/compress-old | grep = >> $DIFF/oldstuff.txt
 
 # Take the diff to a text file
-diff newstuff.txt oldstuff.txt >> diffofstuff.txt
+diff $DIFF/newstuff.txt $DIFF/oldstuff.txt >> $DIFF/diffofstuff.txt
 
 # Clean up and copy the *new* file!
-rm -rf compress-old
-cp ../skadoosh/compress.bash ./compress-old
-rm -rf compress-new
-rm -rf newstuff.txt
-rm -rf oldstuff.txt
+cleanstuff(){
+        rm -rf $DIFF/compress-old
+        cp $SKADOOSH/compress.bash $DIFF/compress-old
+        rm -rf $DIFF/compress-new
+        rm -rf $DIFF/newstuff.txt
+        rm -rf $DIFF/oldstuff.txt
+}
+
+# cleanstuff
 
 # Conditional shiz
-if [ -s diffofstuff.txt ]; then
+if [ -s $DIFF/diffofstuff.txt ]; then
         echo "I find a difference"
         echo "Lets do the stuff!"
         # Removing the diff file
-        rm -rf diffofstuff.txt
+        rm -rf $DIFF/diffofstuff.txt
         
         # Start the madness
-        cd ../skadoosh
-        /bin/bash compress.bash
+        /bin/bash $SKADOOSH/compress.bash
 else
         echo "There is no difference"
         echo "Not doing stuff"
         
         # Removing the diff file
-        rm -rf diffofstuff.txt
+        rm -rf $DIFF/diffofstuff.txt
         exit 0
 fi
