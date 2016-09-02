@@ -41,7 +41,7 @@ cleanstuff(){
         rm -rf $DIFF/oldstuff.txt
 }
 
-# cleanstuff
+cleanstuff
 
 # Conditional shiz
 if [ -s $DIFF/diffofstuff.txt ]; then
