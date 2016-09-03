@@ -51,7 +51,7 @@ if [ -s $DIFF/diffofstuff.txt ]; then
         rm -rf $DIFF/diffofstuff.txt
         
         # Start the madness
-        /bin/bash $SKADOOSH/compress.bash
+        /bin/bash $SKADOOSH/compress.bash | tee $SKADHOOK/logs/checkdiff/checkdiff-$(date +%Y-%m-%d).log
 else
         echo "There is no difference"
         echo "Not doing stuff"
