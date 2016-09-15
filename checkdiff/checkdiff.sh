@@ -21,11 +21,6 @@ SKADHOOK=/home/regalstreak2/android/skadhook
 SKADOOSH=$SKADHOOK/skadoosh
 DIFF=$SKADHOOK/checkdiff
 
-# Check if we don't want to trigger a build
-if [ grep "DONTBUILD" "$SKADOOSH/compress.bash" ] || [ grep "DONTBUILD" "$SKADOOSH/skadoo.sh" ]; then
-  exit 1
-fi
-
 # Copy new file to current
 rm -rf $DIFF/compress-new
 cp $SKADOOSH/compress.bash $DIFF/compress-new
