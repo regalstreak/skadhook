@@ -2,6 +2,6 @@ http://skadoosh.regalstreak.me:6969
 
 git github.com/regalstreak/skadoosh ../skadoosh {
     hook /_skadoosh my-secret-keys
-    branch lolita
+    branch master
     then_long /bin/bash ../checkdiff/checkdiff.sh | tee ../logs/checkdiff-$(date +%Y-%m-%d).log
 }
