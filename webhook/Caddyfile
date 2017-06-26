@@ -1,4 +1,4 @@
-http://skadoosh.regalstreak.me:6969
+http://5.9.153.138:9669
 
 git github.com/regalstreak/skadoosh ../skadoosh {
     hook /_skadoosh my-secret-keys
